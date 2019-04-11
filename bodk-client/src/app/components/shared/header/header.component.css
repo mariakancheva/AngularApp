@@ -1,0 +1,28 @@
+header{
+    background-color: crimson;
+    color: white;
+    
+}
+.up-part{
+    display: flex;
+    flex-direction: row;
+}
+
+.social{
+    float: right;
+}
+
+header ul{
+    list-style: none;
+}
+
+header li{
+    display: inline-block;
+    padding: 0.2em;
+    margin: 0.2em;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+}

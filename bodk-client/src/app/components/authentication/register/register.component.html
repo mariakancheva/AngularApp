@@ -1,0 +1,15 @@
+<div class="signup">
+  <form #f="ngForm" (ngSubmit)="register()" id="registerForm">
+    <h2>Register</h2>
+    <label>Username:</label>
+    <input required name="username" ngModel type="text">
+    <label>Password:</label>
+    <input required name="password" ngModel #pass="ngModel" type="password">
+    <label>Repeat Password:</label>
+    <input required name="repeatPass" ngModel #repeatPass="ngModel" type="password">
+    <div *ngIf="pass.value !== repeatPass.value">
+      Passwords must match!
+    </div>
+    <input id="btnRegister" [disabled]="f.invalid" value="Register" type="submit">
+  </form>
+</div>
