@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component:HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path:'site', loadChildren:'./components/site/site.module#SiteModule'}
+  { path: 'site', loadChildren:'./components/site/site.module#SiteModule'},
+  { path: 'users', loadChildren:'./components/user/user.module#UserModule'}
 ];
 
 @NgModule({

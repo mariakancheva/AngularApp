@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('f') loginForm: NgForm;
+  constructor(private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
+  }
+
+  login() {
+    this.authService
+      .signIn(this.loginForm.value)
+      .subscribe((data) => {
+        this.toastr.success('Logged in successfully', 'Success!');
+        this.authService.saveUserInfo(data);
+        this.router.navigate(['/user/home']);
+      })
   }
 
 }

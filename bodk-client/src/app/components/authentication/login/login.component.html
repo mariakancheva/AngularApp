@@ -1,3 +1,11 @@
-<p>
-  login works!
-</p>
+<div class="signup">
+  <form #f="ngForm" (ngSubmit)="login()" id="loginForm">
+    <h2>Sign In</h2>
+    <label>Username:</label>
+    <input required name="username" ngModel type="text">
+    <label>Password:</label>
+    <input required name="password" ngModel type="password">
+    <input id="btnLogin" [disabled]="f.invalid" value="Sign In" type="submit">
+  </form>
+</div>
+

@@ -9,6 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthModule } from './components/authentication/auth.module';
 import { SharedModule } from './components/shared/models/shared.module';
 import { SiteModule } from './components/site/site.module';
+import { UserModule } from './components/user/user.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SiteModule } from './components/site/site.module';
     AuthModule,
     SharedModule,
     SiteModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
