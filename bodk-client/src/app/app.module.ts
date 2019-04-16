@@ -11,8 +11,6 @@ import { SharedModule } from './components/shared/models/shared.module';
 import { SiteModule } from './components/site/site.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
-import { AdminModule } from './components/admin/admin.module';
-import { UserModule } from './components/user/user.module';
 
 @NgModule({
   declarations: [
@@ -27,9 +25,6 @@ import { UserModule } from './components/user/user.module';
     AuthModule,
     SharedModule,
     SiteModule,
-    
-    
-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

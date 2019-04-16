@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Logged in successfully', 'Success!');
         this.authService.saveUserInfo(data);
         this.isAdmin = this.authService.getAdminStatus();
-        debugger;
         if(this.isAdmin){
           this.router.navigate(['/admin'])
         }else{

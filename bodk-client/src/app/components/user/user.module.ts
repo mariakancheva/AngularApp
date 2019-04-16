@@ -4,11 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserRoutingModule } from './user-routing.module';
+import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 
 @NgModule({
     declarations: [
         UserHomeComponent,
         UserProfileComponent,
+        UserProfileEditComponent,
     ],
     imports: [
         CommonModule,

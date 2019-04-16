@@ -1,0 +1,89 @@
+<div class="row space-top">
+    <div class="col-md-12">
+        <h1>Edit Your Profile</h1>
+        <p>Please fill all fields.</p>
+    </div>
+</div>
+
+
+<form  [formGroup]="form" (submit)="editProfile()">
+    <p>Form Status : {{form.status}}</p>
+    <pre>{{form.value | json}}</pre> 
+    <div class="row space-top">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="form-control-label" for="firstName">First Name</label>
+                <input class="form-control" id="firstName" type="text" formControlName="firstName">
+            </div>
+            <div class="alert alert-danger" *ngIf="f.firstName.touched && f.firstName.erors?.required">
+                This field are required!
+            </div>
+            <div class="alert alert-danger" *ngIf="f.firstName.erors?.pattern">
+                Lenght must be at least {{f.firstName.erors.pattern}} chars!
+            </div>
+
+            <div class="form-group has-success">
+                <label class="form-control-label" for="lastName">Last Name</label>
+                <input class="form-control is-valid" id="lastName" type="text" formControlName="lastName">
+            </div>
+
+            <div class="alert alert-danger" *ngIf="f.lastName.touched && f.lastName.erors?.required">
+                This field are required!
+            </div>
+            <div class="alert alert-danger" *ngIf="f.lastName.erors?.pattern">
+                Lenght must be at least {{f.lastName.erors.pattern}} chars!
+            </div>
+
+            <div class="form-group has-danger">
+                <label class="form-control-label" for="email">Email</label>
+                <input class="form-control is-invalid" id="email" type="email" formControlName="email">
+            </div>
+
+            <div class="alert alert-danger" *ngIf="f.email.touched && f.email.erors?.required">
+                This field are required!
+            </div>
+            <div class="alert alert-danger" *ngIf="f.email.erors?.pattern">
+                Year must be at after {{f.email.erors.pattern}}!
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" for="phone">Telephone</label>
+                <input class="form-control" id="phone" type="text" formControlName="phone">
+            </div>
+            <div class="alert alert-danger" *ngIf="f.phone.touched && f.phone.erors?.required">
+                This field are required!
+            </div>
+            <div class="alert alert-danger" *ngIf="f.phone.erors?.pattern">
+                Lenght must be at least {{f.phone.erors.pattern}} chars!
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="form-control-label" for="city">City</label>
+                <input class="form-control" id="city" type="text" formControlName="city">
+            </div>
+            <div class="alert alert-danger" *ngIf="f.city?.touched && f.city?.erors?.required">
+                This field are required!
+            </div>
+            <div class="alert alert-danger" *ngIf="f.city?.erors?.pattern">
+                City must be {{f.city.erors.pattern}}!
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="botype">Blood type</label>
+                <select class="form-control" name="jobTitle" formControlName="botype" >
+                    <option disabled>Please select one</option>
+                    <option *ngFor="let type of botypeSelect" [value]="type">{{type}}</option>
+                  </select>
+            </div>
+            <div class="alert alert-danger" *ngIf="f.botype.touched && f.botype.erors?.required">
+                This field are required!
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="lastDonation">Last Donation (optional)</label>
+                <input class="form-control" id="lastDonation" type="text" formControlName="lastDonation">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Edit Profile</button>
+        </div>
+    </div>
+</form>

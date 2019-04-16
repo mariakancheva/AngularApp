@@ -7,7 +7,9 @@ import { AdminCampainComponent } from './admin-campain/admin-campain.component';
 const adminRoutes:Route[] = [
     { path:'', component: AdminHomeComponent },
     { path: 'users', component: AdminUsersComponent },
-    { path:'campain',component:AdminCampainComponent}
+    { path:'campain',component:AdminCampainComponent},
+    { path: 'campain/edit', component:AdminCampainComponent},
+    
 ]
 
 @NgModule({
