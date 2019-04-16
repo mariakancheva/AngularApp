@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   signIn(body: Object) {
-    return this.http.post(`${this.BASE_URL}/login`, body );
+    return this.http.post(`${this.BASE_URL}/login`, body);
   }
 
   logout() {
@@ -33,24 +33,22 @@ export class AuthService {
     return this.token !== null;
   }
 
-  getAdminStatus(){
-    let isAdmin=false;
-    debugger;
-   if(localStorage['isAdmin'] == ADMIN_ROLE_ID){
-      isAdmin=true;
-   }
-
-   return isAdmin;
+  getAdminStatus() {
+    let isAdmin = false;
+    if (localStorage['isAdmin'] == ADMIN_ROLE_ID) {
+      isAdmin = true;
+    }
+    return isAdmin;
   }
 
   saveUserInfo(res: Object) {
     localStorage.setItem('username', res['username']);
     localStorage.setItem('token', res['_kmd']['authtoken']);
     localStorage.setItem('userId', res['_id']);
-    if(res['_kmd']['roles']){
-       localStorage.setItem('isAdmin',res['_kmd']['roles']['0']['roleId'])
+    if (res['_kmd']['roles']) {
+      localStorage.setItem('isAdmin', res['_kmd']['roles']['0']['roleId'])
     }
-   
-    
+
+
   }
 }

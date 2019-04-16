@@ -25,10 +25,9 @@ export class LoginComponent implements OnInit {
       .signIn(this.loginForm.value)
       .subscribe((data) => {
         this.toastr.success('Logged in successfully', 'Success!');
-        debugger;
-        console.log(data);
         this.authService.saveUserInfo(data);
         this.isAdmin = this.authService.getAdminStatus();
+        debugger;
         if(this.isAdmin){
           this.router.navigate(['/admin'])
         }else{
