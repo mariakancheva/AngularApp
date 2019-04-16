@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  isAdmin:boolean;
+  
   @ViewChild('f') loginForm: NgForm;
   constructor(private authService: AuthService,
     private router: Router,
@@ -24,8 +25,16 @@ export class LoginComponent implements OnInit {
       .signIn(this.loginForm.value)
       .subscribe((data) => {
         this.toastr.success('Logged in successfully', 'Success!');
+        debugger;
+        console.log(data);
         this.authService.saveUserInfo(data);
-        this.router.navigate(['/user/home']);
+        this.isAdmin = this.authService.getAdminStatus();
+        if(this.isAdmin){
+          this.router.navigate(['/admin'])
+        }else{
+          this.router.navigate(['/user']);
+        }
+        
       })
   }
 

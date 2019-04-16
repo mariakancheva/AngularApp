@@ -4,11 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthModule } from './components/authentication/auth.module';
 import { SharedModule } from './components/shared/models/shared.module';
 import { SiteModule } from './components/site/site.module';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { AdminModule } from './components/admin/admin.module';
 import { UserModule } from './components/user/user.module';
 
 @NgModule({
@@ -23,10 +26,15 @@ import { UserModule } from './components/user/user.module';
     AppRoutingModule,
     AuthModule,
     SharedModule,
-    SiteModule
+    SiteModule,
     
+    
+
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

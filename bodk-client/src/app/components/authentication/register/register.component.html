@@ -1,4 +1,5 @@
 <div class="signup">
+  <pre>{{registerForm.value | json}}</pre>
   <form #f="ngForm" (ngSubmit)="register()" id="registerForm">
     <h2>Register</h2>
     <label>Username:</label>

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
   form:FormGroup;
+
   botypeSelect:string[] = [
     'O +',
     'O -',
@@ -30,8 +31,8 @@ export class UserProfileComponent implements OnInit {
       lastName:['',[Validators.required,Validators.pattern(/[A-Z][a-z]/)]],
       email: ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
       phone: ['', [Validators.required, Validators.pattern(/\d{9}/)]],
-      city:['',[Validators.required],Validators.minLength(3)],
-      botype:['',Validators.required],
+      city:['',[Validators.required,Validators.pattern(/[A-Z][a-z]{3,}/)]],
+      botype:[this.botypeSelect,Validators.required],
       lastDonation:['']
     })
   }
@@ -44,8 +45,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   createProfile(){
-    this.userService.createProfile(this.form.value).subscribe(data => {
-      this.router.navigate(['/user/home']);
+    const body = this.form.value;
+    body['author'] = localStorage.getItem('username');
+    this.userService.createProfile(body).subscribe(data => {
+      this.router.navigate(['/user']);
     })
   }
 

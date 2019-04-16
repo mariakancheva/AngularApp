@@ -1,26 +1,31 @@
 <header>
   <div class="up-part">
-     <div class="logo">
-    <img src="" alt="Logo"> 
-    <div>BODK</div>
-  </div>
-  <div class="social">
-    icons
-  </div>
-  <div>contacts</div> 
- 
+    <div class="logo">
+      <img src="" alt="Logo">
+      <div>BODK</div>
+    </div>
+    <div class="social">
+      icons
+    </div>
+    <div>contacts</div>
+
 
   </div>
- 
+
   <nav>
     <ul>
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/about">About Us</a></li>
       <li><a routerLink="/contact">Contact</a></li>
       <li><a routerLink="/donation">Donation</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/register">Register</a></li>
+      <li *ngIf="!authService.isAuthenticated()"><a routerLink="/login">Login</a></li>
+      <li *ngIf="!authService.isAuthenticated()"><a routerLink="/register">Register</a></li>
+      <li *ngIf="authService.isAuthenticated()"><a (click)="logout()">Logout</a></li>
+      <li *ngIf="authService.isAuthenticated()"><a routerLink="/user">User Panel</a></li>
+      <li *ngIf="authService.isAuthenticated() && isAdmin"><a routerLink="/admin">Admin Panel</a></li>
+
+
     </ul>
   </nav>
- 
+
 </header>
