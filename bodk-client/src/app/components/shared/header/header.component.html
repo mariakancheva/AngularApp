@@ -44,9 +44,13 @@
 
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item active" *ngIf="!authService.isAuthenticated()">
             <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item" *ngIf="authService.isAuthenticated() && !isAdmin"><a class="nav-link"
+              routerLink="/user">Home user</a></li>
+          <li class="nav-item" *ngIf="authService.isAuthenticated() && isAdmin"><a class="nav-link"
+              routerLink="/admin">Home admin</a></li>
           <li class="nav-item" *ngIf="!authService.isAuthenticated()"><a class="nav-link" routerLink="/about">About
               Us</a>
           </li>
@@ -60,11 +64,6 @@
               routerLink="/register">Register</a></li>
 
           <li class="nav-item" *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="logout()">Logout</a>
-          </li>
-          <li class="nav-item" *ngIf="authService.isAuthenticated() && !isAdmin"><a class="nav-link"
-              routerLink="/user">User Panel</a></li>
-          <li class="nav-item" *ngIf="authService.isAuthenticated() && isAdmin"><a class="nav-link"
-              routerLink="/admin">Admin Panel</a></li>
         </ul>
 
       </div>

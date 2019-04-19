@@ -1,41 +1,49 @@
-<div class="text-center p-1">
-  <h2>All users</h2>
-</div>
+<section class="p-3">
+  <div class="row">
+    <app-admin-navigation></app-admin-navigation>
+    <div class="col-10">
+      <div class="text-center p-1">
+        <h2>All users</h2>
+      </div>
+      <div class="row space-top p-3 justify-content-md-center">
 
-<div class="row space-top p-3 justify-content-md-center">
+        <table class="table table-hover table-responsive-lg">
+          
+          <thead>
+            <tr scope="row" class="table-primary">
+              <th scope="col">N</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">City</th>
+              <th scope="col">BO TYPE</th>
+              <th scope="col">Last Donation</th>
 
-  <table class="table table-hover table-responsive-lg">
-    <caption>All users</caption>
-    <thead>
-      <tr scope="row" class="table-primary">
-        <th scope="col">N</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Phone</th>
-        <th scope="col">City</th>
-        <th scope="col">BO TYPE</th>
-        <th scope="col">Last Donation</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let user of (users$ | async); let i=index" scope="row">
+            <td>{{i+1}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.botype}}</td>
+            <td>{{user.lastDonation}}</td>
 
-      </tr>
-    </thead>
-    <tr *ngFor="let user of (users$ | async); let i=index" scope="row">
-      <td>{{i+1}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.phone}}</td>
-      <td>{{user.city}}</td>
-      <td>{{user.botype}}</td>
-      <td>{{user.lastDonation}}</td>
+          </tr>
 
-    </tr>
-
-  </table>
+        </table>
 
 
-  <div class="text-center p-1">
-    <h3>Sort users</h3>
-    <button type="button" class="btn btn-outline-primary">By city</button>
-    <button type="button" class="btn btn-outline-primary">By ABO Type</button>
+        <div class="text-center p-1">
+          <h3>Sort users</h3>
+          <button type="button" class="btn btn-outline-primary">By city</button>
+          <button type="button" class="btn btn-outline-primary">By ABO Type</button>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
-</div>
+</section>
