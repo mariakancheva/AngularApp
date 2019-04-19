@@ -8,6 +8,7 @@ import { AdminCampaignComponent } from './admin-campaign/admin-campaign.componen
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { AdminCampaignCreateComponent } from './admin-campaign-create/admin-campaign-create.component';
 import { AdminCampaignEditComponent } from './admin-campaign-edit/admin-campaign-edit.component';
+import { FilterPipe } from 'src/app/core/pipes/filter.pipe';
 
 @NgModule({
     declarations: [
@@ -16,13 +17,14 @@ import { AdminCampaignEditComponent } from './admin-campaign-edit/admin-campaign
         AdminCampaignComponent,
         AdminNavigationComponent,
         AdminCampaignCreateComponent,
-        AdminCampaignEditComponent
+        AdminCampaignEditComponent,
+        FilterPipe
     ],
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        AdminRoutingModule
+        AdminRoutingModule,
     ],
     exports: [
     ]

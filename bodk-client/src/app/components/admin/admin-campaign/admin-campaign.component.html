@@ -3,47 +3,49 @@
     <app-admin-navigation></app-admin-navigation>
 
     <div class="col-10">
-      <h2 class="text-center p-1">All campain</h2>
+      <h2 class="text-center p-1">Active campaigns</h2>
 
       <div class="row space-top p-3 justify-content-md-center">
-          <div class="card-deck">
-            <div class="card" *ngFor="let camp of (campaigns$ | async)">
-              <div class="card-header text-center">
-                  <h5 class="card-title">{{ camp.title}}</h5>
-              </div>
-  
-              <div class="card-body">
-               
-                <div class="card-text">
-                    <i class="fas fa-heart"></i> 
-                  <p>{{camp.description}}</p>
-                  <i class="fas fa-calendar-day"></i>
-                  <p>
-                     <span>Start Date: {{ camp.startDate}}</span><br>
-                  <span>End Date: {{ camp.endDate}}</span>
-                  </p>
-                 <i class="fas fa-map-marked"></i>
-                  <p> City: {{camp.city}} <br> Place: {{camp.place}}</p>
-  
-                </div>
-              </div>
-  
-              <div class="card-footer text-muted">
-                <a  [routerLink]="['/admin/campaign/edit', camp['_id']]" class="btn btn-warning">Edit campaign</a>
-  
-              </div>
-  
+        <div class="card-deck">
+          <div class="card" *ngFor="let camp of (campaigns$ | async)">
+            <div class="card-header text-center">
+              <h5 class="card-title">{{ camp.title}}</h5>
             </div>
+
+            <div class="card-body">
+
+              <div class="card-text">
+                <i class="fas fa-heart"></i>
+                <p>{{camp.description}}</p>
+                <i class="fas fa-calendar-day"></i>
+                <p>
+                  <span>Start Date: {{ camp.startDate}}</span><br>
+                  <span>End Date: {{ camp.endDate}}</span>
+                </p>
+                <i class="fas fa-map-marked"></i>
+                <p> City: {{camp.city}} <br> Place: {{camp.place}}</p>
+
+              </div>
+            </div>
+
+            <div class="card-footer text-muted">
+              <a [routerLink]="['/admin/campaign/edit', camp['_id']]" class="btn btn-warning">Edit campaign</a>
+
+            </div>
+
           </div>
-  
         </div>
 
-     <!--
-       <div class="col-md-4">
-        <app-admin-campaign-create></app-admin-campaign-create>
       </div>
-     --> 
-    
+
+
+
+      <div class="card-footer text-muted row space-top p-3 justify-content-md-center">
+        <a routerLink="/admin/campaign/create" class="btn btn-warning">Create new campaign</a>
+      </div>
+
+
+
     </div>
   </div>
 </section>
