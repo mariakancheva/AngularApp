@@ -3,6 +3,7 @@ import { ProfileInfo } from '../../shared/models/ProfileInfo';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-profile-edit',
@@ -25,7 +26,7 @@ export class UserProfileEditComponent implements OnInit {
     'I have no idea!'
   ]
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router, private toastr:ToastrService) { }
 
   ngOnInit() {
 
@@ -60,6 +61,7 @@ export class UserProfileEditComponent implements OnInit {
     const body = this.form.value;
     body['author'] = localStorage.getItem('username');
     this.userService.editProfile(id ,body).subscribe(res => {
+      this.toastr.success('Profile edited successfully', 'Success!');
       this.router.navigate(['/user']);
     })
   }

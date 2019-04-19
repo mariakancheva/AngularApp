@@ -4,15 +4,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminCampainComponent } from './admin-campain/admin-campain.component';
+import { AdminCampaignComponent } from './admin-campaign/admin-campaign.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { AdminCampaignCreateComponent } from './admin-campaign-create/admin-campaign-create.component';
+import { AdminCampaignEditComponent } from './admin-campaign-edit/admin-campaign-edit.component';
 
 @NgModule({
     declarations: [
         AdminHomeComponent,
         AdminUsersComponent,
-        AdminCampainComponent,
-        AdminNavigationComponent
+        AdminCampaignComponent,
+        AdminNavigationComponent,
+        AdminCampaignCreateComponent,
+        AdminCampaignEditComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,88 @@
+<section class="p-3">
+  <div class="row">
+    <app-admin-navigation></app-admin-navigation>
+
+    <div class="col-10">
+      <h2 class="text-center p-1">All campain</h2>
+
+      <div class="space-top p-3 justify-content-md-center">
+
+
+        <form #f="ngForm" (ngSubmit)="createCampaign()" id="campaignForm">
+          <pre>Form Status : {{campaignForm.status}}</pre>
+          <pre>{{f.value | json}}</pre>
+
+          <fieldset>
+            <legend>Create campain</legend>
+
+            <div class="form-group">
+              <label class="form-control-label">Title:</label>
+              <input class="form-control" required name="title" ngModel type="text">
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="campaignForm.controls?.title?.touched && campaignForm.controls?.title?.errors?.required">This field
+              is
+              required!
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label">Description:</label>
+              <textarea class="form-control" id="text" rows="3" ngModel name="description" type="text"></textarea>
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="campaignForm.controls.description?.touched && campaignForm.controls.description?.errors?.required">
+              This field is
+              required!
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label">Start Date:</label>
+              <input class="form-control" required ngModel name="startDate" type="date">
+
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="campaignForm.controls.startDate?.touched && campaignForm.controls.startDate?.errors?.required">This
+              field is
+              required!
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label">End Date:</label>
+              <input class="form-control" required ngModel name="endDate" type="date">
+
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="campaignForm.controls.endDate?.touched && campaignForm.controls.endDate?.errors?.required">This
+              field is
+              required!
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label">City:</label>
+              <input class="form-control" required name="city" ngModel type="text">
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="campaignForm.controls.city?.touched && campaignForm.controls.city?.errors?.required">This field is
+              required!
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label">Place:</label>
+              <input class="form-control" required name="place" ngModel type="text">
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="campaignForm.controls.place?.touched && campaignForm.controls.place?.errors?.required">This field
+              is
+              required!
+            </div>
+
+            <button class="btn btn-primary" [disabled]="f.invalid" type="submit">Add campaign</button>
+          </fieldset>
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+</section>

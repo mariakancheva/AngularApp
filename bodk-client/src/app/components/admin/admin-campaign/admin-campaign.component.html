@@ -1,11 +1,9 @@
-<section >
+<section class="p-3">
   <div class="row">
-   <app-user-navigation></app-user-navigation>
-    <div class="col-10 p-3">
-      <h2>Welcome to BDO system</h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, qui? Reiciendis assumenda, esse laborum sint aliquam accusantium itaque dolore quam doloremque ratione cumque architecto debitis quos rem ullam molestiae fugiat.</p>
+    <app-admin-navigation></app-admin-navigation>
 
-      <h3>Latest campain</h3>
+    <div class="col-10">
+      <h2 class="text-center p-1">All campain</h2>
 
       <div class="row space-top p-3 justify-content-md-center">
           <div class="card-deck">
@@ -31,13 +29,21 @@
               </div>
   
               <div class="card-footer text-muted">
-                
+                <a  [routerLink]="['/admin/campaign/edit', camp['_id']]" class="btn btn-warning">Edit campaign</a>
+  
               </div>
   
             </div>
           </div>
   
         </div>
+
+     <!--
+       <div class="col-md-4">
+        <app-admin-campaign-create></app-admin-campaign-create>
+      </div>
+     --> 
+    
     </div>
   </div>
 </section>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-profile',
@@ -23,7 +24,10 @@ export class UserProfileComponent implements OnInit {
     'I have no idea!'
   ]
 
-  constructor(private fb:FormBuilder, private userService:UserService,private router:Router ) { }
+  constructor(private fb:FormBuilder, 
+    private userService:UserService,
+    private router:Router,
+    private toastr:ToastrService ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -48,6 +52,8 @@ export class UserProfileComponent implements OnInit {
     const body = this.form.value;
     body['author'] = localStorage.getItem('username');
     this.userService.createProfile(body).subscribe(data => {
+      this.toastr.success('Profile created in successfully', 'Success!');
+
       this.router.navigate(['/user']);
     })
   }
