@@ -1,33 +1,41 @@
-<h1> All users</h1>
+<div class="text-center p-1">
+  <h2>All users</h2>
+</div>
 
+<div class="row space-top p-3 justify-content-md-center">
 
-<table>
-  <caption>All users</caption>
-  <thead>
-      <tr>
-        <th>N</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone</th>
-        <th>City</th>
-        <th>BO TYPE</th>
-        <th>Last Donation</th>
-        <th>Actions</th>
+  <table class="table table-hover table-responsive-lg">
+    <caption>All users</caption>
+    <thead>
+      <tr scope="row" class="table-primary">
+        <th scope="col">N</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">City</th>
+        <th scope="col">BO TYPE</th>
+        <th scope="col">Last Donation</th>
+
       </tr>
     </thead>
-  <tr *ngFor="let user of (users$ | async); let i=index">
-    <td>{{i+1}}</td>
-    <td>{{user.firstName}}</td>
-    <td>{{user.lastName}}</td>
-    <td>{{user.phone}}</td>
-    <td>{{user.city}}</td>
-    <td>{{user.botype}}</td>
-    <td>{{user.lastDonation}}</td>
-    <td>
-      <button>View Profile</button>
-      <button>Delete user</button>
-    </td>
+    <tr *ngFor="let user of (users$ | async); let i=index" scope="row">
+      <td>{{i+1}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.city}}</td>
+      <td>{{user.botype}}</td>
+      <td>{{user.lastDonation}}</td>
 
-  </tr>
-  <tfoot></tfoot>
-</table>
+    </tr>
+
+  </table>
+
+
+  <div class="text-center p-1">
+    <h3>Sort users</h3>
+    <button type="button" class="btn btn-outline-primary">By city</button>
+    <button type="button" class="btn btn-outline-primary">By ABO Type</button>
+  </div>
+
+</div>

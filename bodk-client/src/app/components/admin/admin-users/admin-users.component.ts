@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileInfo } from '../../shared/models/ProfileInfo';
 import { UserService } from 'src/app/core/services/user.service';
 import { Observable } from 'rxjs';
-import { debug } from 'util';
 
 @Component({
   selector: 'app-admin-users',

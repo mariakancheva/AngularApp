@@ -1,0 +1,33 @@
+<div class="text-center p-1">
+  <h2>Your profile</h2>
+</div>
+
+
+<div class="row space-top p-3 justify-content-md-center">
+  <div class="col-6 col-md-4">
+    <div class="card">
+      <div class="card-header text-center">
+        {{profile.firstName}} {{profile.lastName}}
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-text">
+
+          <p>Email: {{profile.email}}</p>
+          <p>Phone: {{profile.phone}}</p>
+          <p>City: {{profile.city}}</p>
+          <p>ABO Type: {{profile.botype}}</p>
+          <p>Last donation: {{profile.lastDonation}}</p>
+
+        </div>
+      </div>
+
+      <div class="card-footer text-muted">
+        <a routerLink="/user/profile/edit" class="btn btn-primary">Edit profile</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>

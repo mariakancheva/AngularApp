@@ -1,15 +1,36 @@
 header{
     background-color: crimson;
     color: white;
+    width: 100%;
     
 }
 .up-part{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    width: 100%;
 }
 
 .social{
-    float: right;
+    width: 20%;
+    font-size: 1.25em;
+    display: flex;
+    flex-direction: row;
+}
+.contacts-details{
+    width: 20%;
+}
+
+.icon{
+    border: 0.1em solid white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header ul{
@@ -17,7 +38,7 @@ header ul{
 }
 
 header li{
-    display: inline-block;
+   
     padding: 0.2em;
     margin: 0.2em;
 }
@@ -25,4 +46,13 @@ header li{
 header a{
     text-decoration: none;
     color: white;
+}
+
+.logo{
+    width: 50%;
+    font-size: 2em;
+}
+
+.navbar{
+    border: none !important;
 }

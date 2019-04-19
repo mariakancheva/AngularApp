@@ -1,16 +1,43 @@
-<div class="signup">
-  <pre>{{registerForm.value | json}}</pre>
-  <form #f="ngForm" (ngSubmit)="register()" id="registerForm">
-    <h2>Register</h2>
-    <label>Username:</label>
-    <input required name="username" ngModel type="text">
-    <label>Password:</label>
-    <input required name="password" ngModel #pass="ngModel" type="password">
-    <label>Repeat Password:</label>
-    <input required name="repeatPass" ngModel #repeatPass="ngModel" type="password">
-    <div *ngIf="pass.value !== repeatPass.value">
-      Passwords must match!
-    </div>
-    <input id="btnRegister" [disabled]="f.invalid" value="Register" type="submit">
-  </form>
+<div class="row space-top p-3 justify-content-md-center">
+
+  <div class="col-6 col-md-4">
+    <form #f="ngForm" (ngSubmit)="register()" id="registerForm">
+      <fieldset>
+        <legend>Register</legend>
+
+        <div class="form-group">
+          <label class="form-control-label">Username:</label>
+          <input class="form-control" required name="username" ngModel type="text">
+        </div>
+        <div class="alert alert-danger"
+        *ngIf="registerForm.controls.username?.touched && registerForm.controls.username?.errors?.required">This field is
+        required!
+      </div>
+
+        <div class="form-group">
+          <label class="form-control-label">Password:</label>
+          <input class="form-control" required name="password" ngModel #pass="ngModel" type="password">
+        </div>
+        <div class="alert alert-danger"
+        *ngIf="registerForm.controls.password?.touched && registerForm.controls.password?.errors?.required">This field is
+        required!
+      </div>
+
+        <div class="form-group">
+          <label class="form-control-label">Repeat Password:</label>
+          <input class="form-control" required name="repeatPass" ngModel #repeatPass="ngModel" type="password">
+          <div *ngIf="pass.value !== repeatPass.value">
+            Passwords must match!
+          </div>
+        </div>
+        <div class="alert alert-danger"
+        *ngIf="registerForm.controls.repeatPass?.touched && registerForm.controls.repeatPass?.errors?.required">This field is
+        required!
+      </div>
+
+        <button class="btn btn-primary" [disabled]="f.invalid" type="submit">Register</button>
+      </fieldset>
+    </form>
+  </div>
+  
 </div>

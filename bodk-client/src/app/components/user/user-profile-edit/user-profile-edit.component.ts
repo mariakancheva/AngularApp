@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProfileInfo } from '../../shared/models/ProfileInfo';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
@@ -11,8 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserProfileEditComponent implements OnInit {
 
+  @ViewChild ('form') form:FormGroup;
   profile: ProfileInfo;
-  form: FormGroup;
   botypeSelect: string[] = [
     'O +',
     'O -',
@@ -32,7 +32,7 @@ export class UserProfileEditComponent implements OnInit {
     this.userService.getProfile().subscribe(data => {
       this.profile = data[0];
       console.log(this.profile);
-      debugger;
+ 
       this.form = this.fb.group({
         firstName: [this.profile.firstName, [Validators.required, Validators.pattern(/[A-Z][a-z]/)]],
         lastName: [this.profile.lastName, [Validators.required, Validators.pattern(/[A-Z][a-z]/)]],
@@ -57,7 +57,9 @@ export class UserProfileEditComponent implements OnInit {
   editProfile() {
     debugger;
     let id = this.profile['_id']
-    this.userService.editProfile(id ,this.form.value,).subscribe(res => {
+    const body = this.form.value;
+    body['author'] = localStorage.getItem('username');
+    this.userService.editProfile(id ,body).subscribe(res => {
       this.router.navigate(['/user']);
     })
   }
