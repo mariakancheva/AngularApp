@@ -1,0 +1,44 @@
+.donation-main{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 1em;
+  
+}
+
+.donation-main  div{
+    border: 1px solid #BF5083;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    align-self: center;
+}
+
+.donation-main article img{
+    max-width: 100%;
+}
+
+.text-part{
+    padding: 0 1em 1em;
+}
+
+.text-part ul{
+    list-style: circle inside;
+    padding: 0 1em;
+}
+    
+
+.text-part button{
+    background: #BF5083;
+    border: none;
+    color:white;
+    padding: 1em;
+    width: 100%;
+}
+
+.author{
+    color: #BF5083;
+    font-style: italic;
+}
+
+
+ 
+   
