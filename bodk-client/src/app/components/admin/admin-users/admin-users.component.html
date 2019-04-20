@@ -6,28 +6,39 @@
         <h2>All users</h2>
       </div>
 
-      <form>
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-addon"><i class="fa fa-search"></i></div>
-            <input type="text" class="form-control" placeholder="Search by town" ng-model="searchCity">
-          </div>
-          <button (click)="updateByTown()">Search</button>
-        </div>
-      </form>
+      <div class="row space-top p-3 justify-content-md-center">
 
-      <form>
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-addon"><i class="fa fa-search"></i></div>
-            <input type="text" class="form-control" placeholder="Search by ABO type" ng-model="searchType">
-          </div>
+
+        <div class="col-4">
+          <form #form="ngForm" (ngSubmit)="searchCity(form.value)">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by town" name="query" ngModel required
+                  minlength="3">
+                <button [disabled]="form.invalid" class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+
+        <div class="col-4">
+          <form #f="ngForm" (ngSubmit)="searchType(f.value)">
+            <div class="form-group">
+              <div class="input-group">
+                <select class="form-control" name="query" ngModel required>
+                  <option disabled>Search by ABO type</option>
+                  <option *ngFor="let type of botypeSelect" [value]="type">{{type}}</option>
+                </select>
+                <button class="btn btn-outline-warning" [disabled]="f.invalid" type="submit"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
 
       <div class="row space-top p-3 justify-content-md-center" *ngIf="users$">
 
-        <table class="table table-hover table-responsive-lg">
+        <table class="table table-hover col-lg-12">
 
           <thead>
             <tr scope="row" class="table-primary">
@@ -41,8 +52,7 @@
 
             </tr>
           </thead>
-          <tr *ngFor="let user of (users$ | async); let i=index"
-            scope="row">
+          <tr *ngFor="let user of (users$ | async); let i=index" scope="row">
             <td>{{i+1}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
@@ -54,13 +64,6 @@
           </tr>
 
         </table>
-
-
-        <div class="text-center p-1">
-          <h3>Sort users</h3>
-          <button type="button" class="btn btn-outline-warning">By city</button>
-          <button type="button" class="btn btn-outline-warning">By ABO Type</button>
-        </div>
 
       </div>
 

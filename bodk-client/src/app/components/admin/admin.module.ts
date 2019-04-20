@@ -9,6 +9,8 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
 import { AdminCampaignCreateComponent } from './admin-campaign-create/admin-campaign-create.component';
 import { AdminCampaignEditComponent } from './admin-campaign-edit/admin-campaign-edit.component';
 import { FilterPipe } from 'src/app/core/pipes/filter.pipe';
+import { SearchUserCityComponent } from './search-user-city/search-user-city.component';
+import { SearchUserBotypeComponent } from './search-user-botype/search-user-botype.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +20,9 @@ import { FilterPipe } from 'src/app/core/pipes/filter.pipe';
         AdminNavigationComponent,
         AdminCampaignCreateComponent,
         AdminCampaignEditComponent,
-        FilterPipe
+        FilterPipe,
+        SearchUserCityComponent,
+        SearchUserBotypeComponent
     ],
     imports: [
         CommonModule,

@@ -25,12 +25,20 @@ export class UserService {
         return this.http.get<Array<ProfileInfo>>(this.ALL_PROFILES);
     }
 
+    getProfilesByCity(city:string):Observable<Array<ProfileInfo>>{
+        return this.http.get<Array<ProfileInfo>>(this.ALL_PROFILES + `?query={"city":{"$regex":"^${city}"}}`)
+    }
+
+    getProfilesByABOType(botype:string):Observable<Array<ProfileInfo>>{
+        return this.http.get<Array<ProfileInfo>>(this.ALL_PROFILES + `?query={"botype":{"$regex":"^${botype}"}}`)
+    }
+
     getProfile(){
         let name = localStorage.getItem('username')
         return this.http.get<ProfileInfo>(this.ALL_PROFILES +`?query={"author":"${name}"}`)
     }
 
-    deleteProfile(id){
+    deleteProfile(id:string){
         return this.http.delete(this.ALL_PROFILES + `/${id}`)
     }
 

@@ -1,0 +1,49 @@
+<section class="p-3">
+    <div class="row">
+      <app-admin-navigation></app-admin-navigation>
+      <div class="col-10">
+        <div class="text-center p-1">
+          <h2>All users by city: {{query}}</h2>
+        </div>
+  
+        <div class="row space-top p-3 justify-content-md-center" *ngIf="matchedUsers$">
+  
+          <table class="table table-hover table-responsive-lg">
+  
+            <thead>
+              <tr scope="row" class="table-primary">
+                <th scope="col">N</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">City</th>
+                <th scope="col">BO TYPE</th>
+                <th scope="col">Last Donation</th>
+                <th scope="col">Action</th>
+  
+              </tr>
+            </thead>
+            <tr *ngFor="let user of (matchedUsers$ | async); let i=index"
+              scope="row">
+              <td>{{i+1}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.city}}</td>
+              <td>{{user.botype}}</td>
+              <td>{{user.lastDonation}}</td>
+              <td> 
+                <button class="btn btn-outline-warning"> <a href="mailto:{{user.email}}">Send mail</a> </button>
+              </td>
+  
+            </tr>
+  
+          </table>
+  
+        </div>
+  
+      </div>
+    </div>
+  
+  </section>
+

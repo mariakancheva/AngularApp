@@ -3,14 +3,16 @@
     <app-admin-navigation></app-admin-navigation>
 
     <div class="col-10">
-      <h2 class="text-center p-1">All campain</h2>
+      <h2 class="text-center p-1">Add new campain</h2>
 
       <div class="space-top p-3 justify-content-md-center">
 
 
         <form #f="ngForm" (ngSubmit)="createCampaign()" id="campaignForm">
-          <pre>Form Status : {{campaignForm.status}}</pre>
+         <!--
+           <pre>Form Status : {{campaignForm.status}}</pre>
           <pre>{{f.value | json}}</pre>
+         --> 
 
           <fieldset>
             <legend>Create campain</legend>
@@ -76,7 +78,7 @@
               required!
             </div>
 
-            <button class="btn btn-primary" [disabled]="f.invalid" type="submit">Add campaign</button>
+            <button class="btn btn-warning" [disabled]="f.invalid" type="submit">Add campaign</button>
           </fieldset>
         </form>
 
