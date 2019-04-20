@@ -11,10 +11,14 @@ import { SharedModule } from './components/shared/models/shared.module';
 import { SiteModule } from './components/site/site.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { DropdownDirective } from './core/directives/dropdown.directive';
+import { CollapseDirective } from './core/directives/collapse.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,  
+    DropdownDirective,
+    CollapseDirective
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,7 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
     AuthModule,
     SharedModule,
     SiteModule,
+  
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

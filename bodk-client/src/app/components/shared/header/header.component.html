@@ -49,8 +49,11 @@
           </li>
           <li class="nav-item" *ngIf="authService.isAuthenticated() && !isAdmin"><a class="nav-link"
               routerLink="/user">Home user</a></li>
+          <!--
+            
           <li class="nav-item" *ngIf="authService.isAuthenticated() && isAdmin"><a class="nav-link"
               routerLink="/admin">Home admin</a></li>
+          -->
           <li class="nav-item" *ngIf="!authService.isAuthenticated()"><a class="nav-link" routerLink="/about">About
               Us</a>
           </li>

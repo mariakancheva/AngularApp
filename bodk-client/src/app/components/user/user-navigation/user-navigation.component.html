@@ -1,10 +1,18 @@
-<div class="col">
-  <ul class="nav flex-column">
-    <li class="nav-item"><a class="nav-link" routerLink="/user/profile">Create profile</a></li>
-    <li class="nav-item"><a class="nav-link" routerLink="/user/profile/details">View profile</a></li>
-    <li class="nav-item"><a class="nav-link" routerLink="/user/profile/edit">Edit profile</a></li>
-    <li class="nav-item"><a class="nav-link" routerLink="/user/campain">Campains</a></li>
-    <li class="nav-item"><a class="nav-link" routerLink="/user/donation">Donation</a></li>
-    <li class="nav-item"><a class="nav-link" routerLink="/user/forum">Forum</a></li>
-  </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark user-nav">
+  <a class="navbar-brand" routerLink="/user/home">Home</a>
+  <button appCollapse class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a class="nav-link" routerLink="/user/profile">Create profile</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/user/profile/details">View profile</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/user/profile/edit">Edit profile</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/user/campaign">Campains</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/user/donation">Donation</a></li>
+
+    </ul>
+  </div>
+</nav>

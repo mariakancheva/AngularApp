@@ -25,6 +25,7 @@ export class UserService {
         return this.http.get<Array<ProfileInfo>>(this.ALL_PROFILES);
     }
 
+
     getProfilesByCity(city:string):Observable<Array<ProfileInfo>>{
         return this.http.get<Array<ProfileInfo>>(this.ALL_PROFILES + `?query={"city":{"$regex":"^${city}"}}`)
     }
@@ -38,12 +39,11 @@ export class UserService {
         return this.http.get<ProfileInfo>(this.ALL_PROFILES +`?query={"author":"${name}"}`)
     }
 
-    deleteProfile(id:string){
-        return this.http.delete(this.ALL_PROFILES + `/${id}`)
-    }
-
     editProfile(id:string, body:Object){
         return this.http.put(this.ALL_PROFILES + `/${id}`, body);
     }
-
+    
+    deleteProfile(id:string){
+        return this.http.delete(this.ALL_PROFILES + `/${id}`)
+    }
 }

@@ -1,43 +1,46 @@
-<section >
-  <div class="row">
-   <app-user-navigation></app-user-navigation>
-    <div class="col-10 p-3">
-      <h2>Welcome to BDO system</h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, qui? Reiciendis assumenda, esse laborum sint aliquam accusantium itaque dolore quam doloremque ratione cumque architecto debitis quos rem ullam molestiae fugiat.</p>
+<app-user-navigation></app-user-navigation>
+<section class="mw-100 space-top p-3 justify-content-md-center overflow-hidden">
 
-      <h3>Latest campain</h3>
+    <div class="row">
+        <div class="row space-top p-3 justify-content-md-center">
+            <div class="card-deck">
 
-      <div class="row space-top p-3 justify-content-md-center">
-          <div class="card-deck">
-            <div class="card" *ngFor="let camp of (campaigns$ | async)">
-              <div class="card-header text-center">
-                  <h5 class="card-title">{{ camp.title}}</h5>
-              </div>
-  
-              <div class="card-body">
-               
-                <div class="card-text">
-                    <i class="fas fa-heart"></i> 
-                  <p>{{camp.description}}</p>
-                  <i class="fas fa-calendar-day"></i>
-                  <p>
-                     <span>Start Date: {{ camp.startDate}}</span><br>
-                  <span>End Date: {{ camp.endDate}}</span>
-                  </p>
-                 <i class="fas fa-map-marked"></i>
-                  <p> City: {{camp.city}} <br> Place: {{camp.place}}</p>
-  
+                <div class="card text-center" style="width: 18rem;">
+                    <img src="assets/images/i-donate-icon.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><strong>Welcome, {{username}}! </strong> </p>
+                    </div>
                 </div>
-              </div>
-  
-              <div class="card-footer text-muted">
-                
-              </div>
-  
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Profile</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Profile page</h6>
+                        <p class="card-text">You need to have a profile to participate at our campaigns!</p>
+                        <div class="card-footer text-muted row space-top p-3 justify-content-md-center">
+                            <a routerLink="/user/profile" class="btn btn-warning">Create profle</a>
+                        </div>
+                        <div class="card-footer text-muted row space-top p-3 justify-content-md-center"
+                            *ngIf="hasProfile">
+                            <a routerLink="/user/profile" class="btn btn-warning">Edit profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Campaigns</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Campaigns page</h6>
+                        <p class="card-text">You can see all of our campaigns, but you have to make a profile first!</p>
+
+                        <div class="card-footer text-muted row space-top p-3 justify-content-md-center">
+                            <a routerLink="/user/campaign" class="btn btn-warning">View campaigns</a>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
-          </div>
-  
         </div>
     </div>
-  </div>
 </section>

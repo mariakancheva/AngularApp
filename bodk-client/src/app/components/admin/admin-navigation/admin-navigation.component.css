@@ -1,0 +1,9 @@
+a{
+    text-decoration: none;
+    color: #BF5083;
+}
+
+a:hover{
+    color: white;
+    background-color: #BF5083;
+}

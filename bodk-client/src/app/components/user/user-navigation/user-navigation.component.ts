@@ -10,6 +10,6 @@ export class UserNavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  
   }
-
 }

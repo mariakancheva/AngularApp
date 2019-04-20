@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { UserProfileDetailsComponent } from './user-profile-details/user-profile-details.component';
 import { UserNavigationComponent } from './user-navigation/user-navigation.component';
+import { UserCampaignComponent } from './user-campaign/user-campaign.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { UserNavigationComponent } from './user-navigation/user-navigation.compo
         UserProfileEditComponent,
         UserProfileDetailsComponent,
         UserNavigationComponent,
+        UserCampaignComponent,
     ],
     imports: [
         CommonModule,

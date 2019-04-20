@@ -1,0 +1,41 @@
+<section>
+    <div class="row">
+      <app-user-navigation></app-user-navigation>
+      <div class="col-10 p-3">
+
+        <h3>Latest campain</h3>
+  
+        <div class="row space-top p-3 justify-content-md-center">
+          <div class="card-deck">
+            <div class="card" *ngFor="let camp of (campaigns$ | async)">
+              <div class="card-header text-center">
+                <h5 class="card-title">{{ camp.title}}</h5>
+              </div>
+  
+              <div class="card-body">
+  
+                <div class="card-text">
+                  <i class="fas fa-heart"></i>
+                  <p>{{camp.description}}</p>
+                  <i class="fas fa-calendar-day"></i>
+                  <p>
+                    <span>Start Date: {{ camp.startDate }}</span><br>
+                    <span>End Date: {{ camp.endDate}}</span>
+                  </p>
+                  <i class="fas fa-map-marked"></i>
+                  <p> City: {{camp.city}} <br> Place: {{camp.place}}</p>
+  
+                </div>
+              </div>
+  
+              <div class="card-footer text-muted" *ngIf="hasProfile">
+                <button class="btn btn-warning" (click)="joinToCampaign(''+ camp._id,''+ camp.title)">Join to campaign</button>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>

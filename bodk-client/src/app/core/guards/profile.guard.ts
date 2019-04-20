@@ -12,9 +12,9 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class ProfileGuard implements CanActivate {
 
-  getAdmin: boolean;
+  hasProfile: string;
   constructor(
     private authService: AuthService,
     private router: Router
@@ -24,11 +24,12 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    if (this.authService.getAdminStatus()) {
+        this.hasProfile=localStorage.getItem('hasProfile');
+    if (this.hasProfile =="true") {
       return true;
     }
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/user/profile']);
     return false;
   }
 }
