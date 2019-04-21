@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
 import { Router } from '@angular/router';
@@ -10,9 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  form:FormGroup;
 
-  botypeSelect:string[] = [
+  botypeSelect: string[] = [
     'O +',
     'O -',
     'A +',
@@ -23,32 +22,33 @@ export class UserProfileComponent implements OnInit {
     'AB -',
     'I have no idea!'
   ]
+  @ViewChild('form') form: FormGroup;
 
-  constructor(private fb:FormBuilder, 
-    private userService:UserService,
-    private router:Router,
-    private toastr:ToastrService ) { }
+  constructor(private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
-      firstName:['',[Validators.required,Validators.pattern(/[A-Z][a-z]/)]],
-      lastName:['',[Validators.required,Validators.pattern(/[A-Z][a-z]/)]],
+      firstName: ['', [Validators.required, Validators.pattern(/[A-Z][a-z]/)]],
+      lastName: ['', [Validators.required, Validators.pattern(/[A-Z][a-z]/)]],
       email: ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
-      phone: ['', [Validators.required, Validators.pattern(/\d{9}/)]],
-      city:['',[Validators.required,Validators.pattern(/[A-Z][a-z]{3,}/)]],
-      botype:[this.botypeSelect,Validators.required],
-      lastDonation:['']
+      phone: ['', [Validators.required, Validators.pattern(/\d{9,10}/)]],
+      city: ['', [Validators.required, Validators.pattern(/[A-Z][a-z]{3,}/)]],
+      botype: [this.botypeSelect, Validators.required],
+      lastDonation: ['', Validators.pattern(/\d{4}-\d{2}-\d{2}/)]
     })
   }
 
   get f() {
     return this.form.controls;
   }
-  get invalid(){
+  get invalid() {
     return this.form.invalid;
   }
 
-  createProfile(){
+  createProfile() {
     const body = this.form.value;
     body['author'] = localStorage.getItem('username');
     this.userService.createProfile(body).subscribe(data => {

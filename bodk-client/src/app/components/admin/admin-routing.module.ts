@@ -7,6 +7,8 @@ import { AdminCampaignCreateComponent } from './admin-campaign-create/admin-camp
 import { AdminCampaignEditComponent } from './admin-campaign-edit/admin-campaign-edit.component';
 import { SearchUserCityComponent } from './search-user-city/search-user-city.component';
 import { SearchUserBotypeComponent } from './search-user-botype/search-user-botype.component';
+import { AdminNewsCreateComponent } from './admin-news-create/admin-news-create.component';
+import { AdminNewsComponent } from './admin-news/admin-news.component';
 
 const adminRoutes: Route[] = [
     { path: '', component: AdminHomeComponent },
@@ -16,6 +18,8 @@ const adminRoutes: Route[] = [
     { path: 'campaign', component: AdminCampaignComponent },
     { path: 'campaign/create', component: AdminCampaignCreateComponent },
     { path: 'campaign/edit/:id', component: AdminCampaignEditComponent },
+    { path: 'news/create', component:AdminNewsCreateComponent},
+    { path: 'news', component:AdminNewsComponent}
 
 ]
 

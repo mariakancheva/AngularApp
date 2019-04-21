@@ -11,6 +11,8 @@ import { AdminCampaignEditComponent } from './admin-campaign-edit/admin-campaign
 import { FilterPipe } from 'src/app/core/pipes/filter.pipe';
 import { SearchUserCityComponent } from './search-user-city/search-user-city.component';
 import { SearchUserBotypeComponent } from './search-user-botype/search-user-botype.component';
+import { AdminNewsCreateComponent } from './admin-news-create/admin-news-create.component';
+import { AdminNewsComponent } from './admin-news/admin-news.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +24,9 @@ import { SearchUserBotypeComponent } from './search-user-botype/search-user-boty
         AdminCampaignEditComponent,
         FilterPipe,
         SearchUserCityComponent,
-        SearchUserBotypeComponent
+        SearchUserBotypeComponent,
+        AdminNewsCreateComponent,
+        AdminNewsComponent
     ],
     imports: [
         CommonModule,
@@ -31,6 +35,7 @@ import { SearchUserBotypeComponent } from './search-user-botype/search-user-boty
         AdminRoutingModule,
     ],
     exports: [
+        AdminNewsComponent
     ]
 })
 

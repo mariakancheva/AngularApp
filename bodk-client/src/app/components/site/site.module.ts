@@ -6,6 +6,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { DonationComponent } from './donation/donation.component';
 import { SiteRoutingModule } from './site-routing.module';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
     declarations:[
@@ -13,6 +14,7 @@ import { SiteRoutingModule } from './site-routing.module';
         AboutUsComponent,
         ContactComponent,
         DonationComponent,
+        NewsComponent,
 
     ],
     imports:[

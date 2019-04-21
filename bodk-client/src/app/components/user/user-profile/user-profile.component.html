@@ -81,7 +81,10 @@
                         </div>
                         <div class="form-group">
                             <label class="form-control-label" for="lastDonation">Last Donation (optional)</label>
-                            <input class="form-control" id="lastDonation" type="text" formControlName="lastDonation">
+                            <input class="form-control" id="lastDonation" type="text" formControlName="lastDonation" placeholder="Enter date in format yyyy-mm-dd">
+                        </div>
+                        <div class="alert alert-danger" *ngIf="f.lastDonation?.erors?.pattern">
+                            You need to enter date in format yyyy-mm-dd!
                         </div>
                         <button type="submit" class="btn btn-warning" [disabled]="!form.valid">Create Profile</button>
                     </div>
