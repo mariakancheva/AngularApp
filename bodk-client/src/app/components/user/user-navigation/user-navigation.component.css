@@ -1,15 +1,15 @@
 a{
     text-decoration: none;
-    color: #BF5083;
+    color: #BCA5AE;
 }
 
 a:hover{
     color: white;
-    background-color: #BF5083;
+    background-color: #BCA5AE;
 }
 
 .user-nav{
-    background-color: #BF5083;
+    background-color: #BCA5AE;
     border: none;
     width: 100%;
 }

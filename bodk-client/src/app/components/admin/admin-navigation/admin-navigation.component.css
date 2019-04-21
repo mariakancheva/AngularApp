@@ -7,3 +7,9 @@ a:hover{
     color: white;
     background-color: #BF5083;
 }
+
+.user-nav{
+    background-color: #BF5083;
+    border: none;
+    width: 100%;
+}

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APP_KEY, APP_SECRET } from 'src/app/kinvey.tokens';
 import { Observable } from 'rxjs';
 import { CampaignInfo } from 'src/app/components/shared/models/CampaignInfo';
+import { CampaignUserInfo } from 'src/app/components/shared/models/CampaignUsersInfo';
 
 @Injectable({
     providedIn: 'root'
@@ -53,6 +54,10 @@ export class CampaignService {
     addUserToCampaign(data:object){
         debugger;
         return this.http.post(this.CAMPAIGN_USER_URL,data);
+    }
+
+    getJoinedCampaigns(name:string):Observable<Array<CampaignUserInfo>>{
+        return this.http.get<Array<CampaignUserInfo>>(this.CAMPAIGN_USER_URL + `?query={"username":"${name}"}`)
     }
 
 }

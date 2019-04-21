@@ -8,6 +8,7 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
 import { UserProfileDetailsComponent } from './user-profile-details/user-profile-details.component';
 import { UserNavigationComponent } from './user-navigation/user-navigation.component';
 import { UserCampaignComponent } from './user-campaign/user-campaign.component';
+import { UserCampaignMineComponent } from './user-campaign-mine/user-campaign-mine.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { UserCampaignComponent } from './user-campaign/user-campaign.component';
         UserProfileDetailsComponent,
         UserNavigationComponent,
         UserCampaignComponent,
+        UserCampaignMineComponent,
     ],
     imports: [
         CommonModule,

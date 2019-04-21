@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-campaign.component.css']
 })
 export class UserCampaignComponent implements OnInit {
-
   city: string;
   lastDonation: string = localStorage.getItem('lastDonation');
   hasProfile: boolean;

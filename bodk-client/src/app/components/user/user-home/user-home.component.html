@@ -1,7 +1,7 @@
 <app-user-navigation></app-user-navigation>
 <section class="mw-100 space-top p-3 justify-content-md-center overflow-hidden">
 
-    <div class="row">
+    <div class="row justify-content-md-center">
         <div class="row space-top p-3 justify-content-md-center">
             <div class="card-deck">
 
@@ -17,11 +17,12 @@
                         <h4 class="card-title text-center">Profile</h4>
                         <h6 class="card-subtitle mb-2 text-muted">Profile page</h6>
                         <p class="card-text">You need to have a profile to participate at our campaigns!</p>
-                        <div class="card-footer text-muted row space-top p-3 justify-content-md-center">
+                    </div>
+                    <div class="card-footer text-muted justify-content-md-center">
+                        <div class="p-1">
                             <a routerLink="/user/profile" class="btn btn-warning">Create profle</a>
                         </div>
-                        <div class="card-footer text-muted row space-top p-3 justify-content-md-center"
-                            *ngIf="hasProfile">
+                        <div class="p-1" *ngIf="hasProfile">
                             <a routerLink="/user/profile" class="btn btn-warning">Edit profile</a>
                         </div>
                     </div>
@@ -32,11 +33,18 @@
                         <h4 class="card-title text-center">Campaigns</h4>
                         <h6 class="card-subtitle mb-2 text-muted">Campaigns page</h6>
                         <p class="card-text">You can see all of our campaigns, but you have to make a profile first!</p>
+                    </div>
+                    <div class="card-footer text-muted justify-content-md-center">
+                        <div class="p-1"> <a routerLink="/user/campaign" class="btn btn-warning">View all campaigns</a>
 
-                        <div class="card-footer text-muted row space-top p-3 justify-content-md-center">
-                            <a routerLink="/user/campaign" class="btn btn-warning">View campaigns</a>
+                        </div>
+                        <div class="p-1" *ngIf="hasProfile">
+
+                            <a routerLink="/user/campaign/mine" class="btn btn-warning">View your campaigns</a>
                         </div>
                     </div>
+
+
                 </div>
 
 

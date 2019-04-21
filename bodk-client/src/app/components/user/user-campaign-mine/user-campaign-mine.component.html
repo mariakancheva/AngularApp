@@ -1,0 +1,28 @@
+<app-user-navigation></app-user-navigation>
+<section class="p-3">
+  <div class="row space-top p-3 justify-content-md-center">
+    <div class="col-12 col-md-8">
+      <div class="space-top p-3 justify-content-md-center">
+        <div class="col-md-12 text-center">
+          <h3>Mine campaigns</h3>
+        </div>
+      </div>
+
+      <div class="row space-top p-3 justify-content-md-center">
+        <ul *ngFor="let camp of (campaigns$ | async)">
+          <li>
+      
+              <h4> Title: {{camp.campaingTitle}} </h4>
+              <button class="btn btn-warning">
+                Campaign Details
+              </button>
+      
+
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+</section>

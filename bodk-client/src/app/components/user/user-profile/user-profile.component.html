@@ -1,7 +1,8 @@
+<app-user-navigation></app-user-navigation>
 <section class="p-3">
-    <div class="row">
-        <app-user-navigation></app-user-navigation>
-        <div class="col-10">
+    <div class="row space-top p-3 justify-content-md-center">
+
+        <div class="col-12 col-md-8">
             <div class="space-top p-3 justify-content-md-center">
                 <div class="col-md-12">
                     <h1>Create Your Profile</h1>
@@ -82,7 +83,7 @@
                             <label class="form-control-label" for="lastDonation">Last Donation (optional)</label>
                             <input class="form-control" id="lastDonation" type="text" formControlName="lastDonation">
                         </div>
-                        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Create Profile</button>
+                        <button type="submit" class="btn btn-warning" [disabled]="!form.valid">Create Profile</button>
                     </div>
                 </div>
             </form>

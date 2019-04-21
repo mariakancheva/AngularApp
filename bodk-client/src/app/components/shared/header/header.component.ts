@@ -8,18 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isAdmin:boolean;
+  
 
   constructor(public authService:AuthService, private router:Router) { }
 
   ngOnInit() {
-    this.isAdmin = this.authService.getAdminStatus();
+    
   }
 
-  logout(){
-    this.authService.logout();
-    localStorage.clear();
-    this.router.navigate(['/']);
-  }
+ 
 
 }

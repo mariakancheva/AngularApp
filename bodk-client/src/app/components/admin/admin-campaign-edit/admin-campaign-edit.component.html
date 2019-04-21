@@ -1,6 +1,6 @@
+<app-admin-navigation></app-admin-navigation>
 <section class="p-3">
   <div class="row">
-    <app-admin-navigation></app-admin-navigation>
 
     <div class="col-10">
       <h2 class="text-center p-1">Edit campain</h2>
@@ -20,7 +20,9 @@
               <label class="form-control-label">Title:</label>
               <input class="form-control" required name="title" [(ngModel)]="campaign.title" type="text">
             </div>
-            <div class="alert alert-danger" *ngIf="campaignForm?.controls?.title?.touched && campaignForm.controls?.title?.errors?.required">This field
+            <div class="alert alert-danger"
+              *ngIf="campaignForm?.controls?.title?.touched && campaignForm.controls?.title?.errors?.required">This
+              field
               is required!
             </div>
 

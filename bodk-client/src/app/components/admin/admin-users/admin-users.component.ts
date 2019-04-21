@@ -27,11 +27,11 @@ export class AdminUsersComponent implements OnInit {
    this.users$ = this.userService.getAllProfiles();
   }
 
-  searchCity(value){
+  searchCity(value:any){
     this.router.navigate(['/admin/users/searchByCity'], { queryParams: value })
   }
 
-  searchType(type){
+  searchType(type:any){
     this.router.navigate(['/admin/users/searchByABO'], { queryParams: type })
   }
 

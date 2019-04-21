@@ -1,6 +1,7 @@
+<app-admin-navigation></app-admin-navigation>
 <section class="p-3">
   <div class="row">
-    <app-admin-navigation></app-admin-navigation>
+
     <div class="col-10">
       <div class="text-center p-1">
         <h2>All users</h2>
@@ -15,7 +16,8 @@
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search by town" name="query" ngModel required
                   minlength="3">
-                <button [disabled]="form.invalid" class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
+                <button [disabled]="form.invalid" class="btn btn-outline-warning" type="submit"><i
+                    class="fa fa-search"></i></button>
               </div>
             </div>
           </form>
@@ -29,7 +31,8 @@
                   <option disabled>Search by ABO type</option>
                   <option *ngFor="let type of botypeSelect" [value]="type">{{type}}</option>
                 </select>
-                <button class="btn btn-outline-warning" [disabled]="f.invalid" type="submit"><i class="fa fa-search"></i></button>
+                <button class="btn btn-outline-warning" [disabled]="f.invalid" type="submit"><i
+                    class="fa fa-search"></i></button>
               </div>
             </div>
           </form>

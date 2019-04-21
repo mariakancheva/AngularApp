@@ -6,22 +6,24 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
 import { UserProfileDetailsComponent } from './user-profile-details/user-profile-details.component';
 import { UserCampaignComponent } from './user-campaign/user-campaign.component';
 import { ProfileGuard } from 'src/app/core/guards/profile.guard';
+import { UserCampaignMineComponent } from './user-campaign-mine/user-campaign-mine.component';
 
-const userRoutes:Route[] = [
-    { path:'', component: UserHomeComponent },
+const userRoutes: Route[] = [
+    { path: '', component: UserHomeComponent },
     { path: 'profile', component: UserProfileComponent },
-    { path: 'profile/edit',component:UserProfileEditComponent, canActivate:[ProfileGuard]},
-    { path: 'profile/details',component:UserProfileDetailsComponent, canActivate:[ProfileGuard]},
-    { path: 'campaign', component:UserCampaignComponent}
+    { path: 'profile/edit', component: UserProfileEditComponent, canActivate: [ProfileGuard] },
+    { path: 'profile/details', component: UserProfileDetailsComponent, canActivate: [ProfileGuard] },
+    { path: 'campaign', component: UserCampaignComponent },
+    { path: 'campaign/mine', component: UserCampaignMineComponent }
 ]
 
 @NgModule({
-    imports:[
+    imports: [
         RouterModule.forChild(userRoutes)
     ],
-    exports:[
+    exports: [
         RouterModule
     ]
 })
 
-export class UserRoutingModule{}
+export class UserRoutingModule { }
